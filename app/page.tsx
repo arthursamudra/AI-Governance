@@ -55,6 +55,16 @@ const productTabs = [
   },
 ] as const;
 
+ // 👇 Map each product to a video file under /public/videos
+ const videoSources: Record<(typeof productTabs)[number]["id"], string> = {
+  sasf: "/videos/sasf.mp4",
+  "ai-iam": "/videos/ai-iam.mp4",
+  eppe: "/videos/eppe.mp4",
+  git: "/videos/git.mp4",
+  bas: "/videos/bas.mp4",
+  ute: "/videos/ute.mp4",
+};
+
 // ---------------------------------------------
 // Autonomy / balance section (flat, Viya-ish)
 // ---------------------------------------------
@@ -95,6 +105,8 @@ function AutonomyBalanceSection() {
       ],
     },
   } as const;
+
+ 
 
   const active = copy[activeTab];
 
@@ -205,6 +217,10 @@ export default function HomePage() {
   const [activeId, setActiveId] =
     useState<(typeof productTabs)[number]["id"]>("sasf");
   const active = productTabs.find((t) => t.id === activeId) ?? productTabs[0];
+
+    // 👇 pick the video for the currently active tab
+    const activeVideoSrc = videoSources[active.id as (typeof productTabs)[number]["id"]];
+
 
   return (
     <div className="bg-slate-50 pb-24">
@@ -360,7 +376,11 @@ export default function HomePage() {
               Explore {active.label} in detail →
             </a>
           </div>
-          <VideoPlaceholder title={active.title} />
+          {/* 👇 video now changes with the active product */}
+          <VideoPlaceholder
+            title={active.title}
+            videoSrc={activeVideoSrc}
+          />
         </div>
       </section>
 
