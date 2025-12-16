@@ -9,7 +9,10 @@ const navItems = [
   { href: "/eppe", label: "EPPE" },
   { href: "/git", label: "GiT" },
   { href: "/banking-agent-studio", label: "Banking Agent Studio" },
-  { href: "/ute", label: "UTE" }
+  { href: "/ute", label: "UTE" },
+  { href: "/watsonx-integration", label: "IBM watsonx", variant: "platform" },
+
+
 ];
 
 export function SiteHeader() {

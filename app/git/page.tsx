@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ForWatsonxCallout } from "../../components/ForWatsonxCallout";
 
 export default function GitPage() {
   return (
@@ -22,7 +23,6 @@ export default function GitPage() {
 
         {/* White → transparent overlay so text is readable on the left */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,1)_0%,rgba(255,255,255,1)_45%,rgba(255,255,255,0.35)_62%,rgba(15,23,42,0)_100%)]" />
-
 
         {/* Text content */}
         <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-0 py-16 md:py-24">
@@ -81,6 +81,17 @@ export default function GitPage() {
             before it becomes a compliance incident.
           </p>
         </div>
+
+        {/* 🔵 For watsonx callout */}
+        <ForWatsonxCallout
+          description="GiT becomes the training-time governance layer around watsonx.ai fine-tuning and tuning jobs, ensuring that sensitive data, datasets and model variants are continuously overseen before they are published back into the watsonx catalog."
+          bullets={[
+            "Connects to watsonx.ai training and tuning workflows to track which datasets, prompts and hyperparameters are used in each run.",
+            "Attaches governance policies that can block, mask or downgrade high-risk datasets before they are used for fine-tuning.",
+            "Runs memorisation and leakage probes during watsonx training jobs, with the ability to pause or stop runs when policy thresholds are breached.",
+            "Generates a signed governance report per run that can be linked into watsonx.govern and model catalog entries as training-time evidence."
+          ]}
+        />
       </section>
 
       {/* ========================================================= */}
@@ -178,75 +189,75 @@ export default function GitPage() {
 
       {/* Bottom CTA strip – full-width blue band */}
       <section
-  id="contact-strip"
-  className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 mt-20 bg-sky-900 text-white"
->
-  <div className="mx-auto max-w-6xl px-6 lg:px-0 py-12">
-    <div className="grid gap-10 md:grid-cols-[1.4fr,repeat(3,minmax(0,1fr))] items-start">
-      {/* Left: main CTA */}
-      <div>
-        <p className="text-xs uppercase tracking-[0.24em] text-sky-300 mb-2">
-          Get started
-        </p>
-        <h2 className="text-2xl md:text-3xl font-semibold mb-3">
-          Explore Infinite’s AI governance capabilities
-        </h2>
-        <p className="text-sm md:text-base text-sky-100 max-w-md mb-6">
-          Experience the suite in a guided pilot, see it in your banking
-          flows, or just talk through options with us.
-        </p>
-        <a
-          href="#"
-          className="inline-flex items-center rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-2.5 text-sm font-semibold text-white hover:brightness-110 transition"
-        >
-          Try Infinite sandbox
-        </a>
-      </div>
+        id="contact-strip"
+        className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 mt-20 bg-sky-900 text-white"
+      >
+        <div className="mx-auto max-w-6xl px-6 lg:px-0 py-12">
+          <div className="grid gap-10 md:grid-cols-[1.4fr,repeat(3,minmax(0,1fr))] items-start">
+            {/* Left: main CTA */}
+            <div>
+              <p className="text-xs uppercase tracking-[0.24em] text-sky-300 mb-2">
+                Get started
+              </p>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-3">
+                Explore Infinite’s AI governance capabilities
+              </h2>
+              <p className="text-sm md:text-base text-sky-100 max-w-md mb-6">
+                Experience the suite in a guided pilot, see it in your banking
+                flows, or just talk through options with us.
+              </p>
+              <a
+                href="#"
+                className="inline-flex items-center rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-2.5 text-sm font-semibold text-white hover:brightness-110 transition"
+              >
+                Try Infinite sandbox
+              </a>
+            </div>
 
-      {/* Column 1 */}
-      <div className="space-y-2 text-sm">
-        <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
-          Request pricing
-        </p>
-        <p className="text-sky-100">
-          Understand licensing, deployment options, and how Infinite can
-          fit your landscape.
-        </p>
-        <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-          <span className="text-lg">→</span>
-        </button>
-      </div>
+            {/* Column 1 */}
+            <div className="space-y-2 text-sm">
+              <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
+                Request pricing
+              </p>
+              <p className="text-sky-100">
+                Understand licensing, deployment options, and how Infinite can
+                fit your landscape.
+              </p>
+              <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+                <span className="text-lg">→</span>
+              </button>
+            </div>
 
-      {/* Column 2 */}
-      <div className="space-y-2 text-sm">
-        <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
-          Request a demo
-        </p>
-        <p className="text-sky-100">
-          See how SASF, AI-IAM, EPPE, GiT and UTE work together in a real
-          banking flow.
-        </p>
-        <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-          <span className="text-lg">→</span>
-        </button>
-      </div>
+            {/* Column 2 */}
+            <div className="space-y-2 text-sm">
+              <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
+                Request a demo
+              </p>
+              <p className="text-sky-100">
+                See how SASF, AI-IAM, EPPE, GiT and UTE work together in a real
+                banking flow.
+              </p>
+              <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+                <span className="text-lg">→</span>
+              </button>
+            </div>
 
-      {/* Column 3 */}
-      <div className="space-y-2 text-sm">
-        <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
-          Contact us
-        </p>
-        <p className="text-sky-100">
-          Talk to us about pilots, integration approaches, or
-          co-innovation opportunities.
-        </p>
-        <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-          <span className="text-lg">→</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+            {/* Column 3 */}
+            <div className="space-y-2 text-sm">
+              <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
+                Contact us
+              </p>
+              <p className="text-sky-100">
+                Talk to us about pilots, integration approaches, or
+                co-innovation opportunities.
+              </p>
+              <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+                <span className="text-lg">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

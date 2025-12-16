@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ForWatsonxCallout } from "../../components/ForWatsonxCallout";
 
 export default function SASFPage() {
   return (
@@ -20,7 +21,7 @@ export default function SASFPage() {
 
         {/* White → transparent overlay so text sits on top, image visible on right */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,1)_0%,rgba(255,255,255,1)_45%,rgba(255,255,255,0.25)_62%,rgba(15,23,42,0)_100%)]" />
-        
+
         {/* Content aligned with page grid */}
         <div className="relative z-10 mx-auto flex max-w-6xl items-center px-6 py-16 lg:px-0">
           <div className="max-w-xl space-y-4">
@@ -92,6 +93,17 @@ export default function SASFPage() {
             </p>
           </div>
         </div>
+
+        {/* For watsonx callout */}
+        <ForWatsonxCallout
+          description="SASF becomes the execution fabric in which watsonx agent activity is observed, policy-checked and audited — without changing Orchestrate internals."
+          bullets={[
+            "Pre-run and post-run webhooks from watsonx Orchestrate pass each agent invocation through SASF.",
+            "Tool calls from Orchestrate are routed via the Universal Tool Executor, which runs inside SASF.",
+            "All prompts, tool results and training candidates touching IBM models flow through a governed sandbox.",
+          ]}
+          className="mt-10"
+        />
       </section>
 
       {/* EXAMPLE FLOWS – TEXT ONLY, NO IMAGE, NO CARDS */}
@@ -145,75 +157,76 @@ export default function SASFPage() {
 
       {/* Bottom CTA strip – full-width blue band */}
       <section
-  id="contact-strip"
-  className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 mt-20 bg-sky-900 text-white"
->
-  <div className="mx-auto max-w-6xl px-6 lg:px-0 py-12">
-    <div className="grid gap-10 md:grid-cols-[1.4fr,repeat(3,minmax(0,1fr))] items-start">
-      {/* Left: main CTA */}
-      <div>
-        <p className="text-xs uppercase tracking-[0.24em] text-sky-300 mb-2">
-          Get started
-        </p>
-        <h2 className="text-2xl md:text-3xl font-semibold mb-3">
-          Explore Infinite’s AI governance capabilities
-        </h2>
-        <p className="text-sm md:text-base text-sky-100 max-w-md mb-6">
-          Experience the suite in a guided pilot, see it in your banking
-          flows, or just talk through options with us.
-        </p>
-        <a
-          href="#"
-          className="inline-flex items-center rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-2.5 text-sm font-semibold text-white hover:brightness-110 transition"
-        >
-          Try Infinite sandbox
-        </a>
-      </div>
+        id="contact-strip"
+        className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 mt-20 bg-sky-900 text-white"
+      >
+        <div className="mx-auto max-w-6xl px-6 lg:px-0 py-12">
+          <div className="grid gap-10 md:grid-cols-[1.4fr,repeat(3,minmax(0,1fr))] items-start">
+            {/* Left: main CTA */}
+            <div>
+              <p className="text-xs uppercase tracking-[0.24em] text-sky-300 mb-2">
+                Get started
+              </p>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-3">
+                Explore Infinite’s AI governance capabilities
+              </h2>
+              <p className="text-sm md:text-base text-sky-100 max-w-md mb-6">
+                Experience the suite in a guided pilot, see it in your banking
+                flows, or just talk through options with us.
+              </p>
+              <a
+                href="#"
+                className="inline-flex items-center rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-2.5 text-sm font-semibold text-white hover:brightness-110 transition"
+              >
+                Try Infinite sandbox
+              </a>
+            </div>
 
-      {/* Column 1 */}
-      <div className="space-y-2 text-sm">
-        <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
-          Request pricing
-        </p>
-        <p className="text-sky-100">
-          Understand licensing, deployment options, and how Infinite can
-          fit your landscape.
-        </p>
-        <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-          <span className="text-lg">→</span>
-        </button>
-      </div>
+            {/* Column 1 */}
+            <div className="space-y-2 text-sm">
+              <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
+                Request pricing
+              </p>
+              <p className="text-sky-100">
+                Understand licensing, deployment options, and how Infinite can
+                fit your landscape.
+              </p>
+              <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+                <span className="text-lg">→</span>
+              </button>
+            </div>
 
-      {/* Column 2 */}
-      <div className="space-y-2 text-sm">
-        <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
-          Request a demo
-        </p>
-        <p className="text-sky-100">
-          See how SASF, AI-IAM, EPPE, GiT and UTE work together in a real
-          banking flow.
-        </p>
-        <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-          <span className="text-lg">→</span>
-        </button>
-      </div>
+            {/* Column 2 */}
+            <div className="space-y-2 text-sm">
+              <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
+                Request a demo
+              </p>
+              <p className="text-sky-100">
+                See how SASF, AI-IAM, EPPE, GiT and UTE work together in a real
+                banking flow.
+              </p>
+              <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+                <span className="text-lg">→</span>
+              </button>
+            </div>
 
-      {/* Column 3 */}
-      <div className="space-y-2 text-sm">
-        <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
-          Contact us
-        </p>
-        <p className="text-sky-100">
-          Talk to us about pilots, integration approaches, or
-          co-innovation opportunities.
-        </p>
-        <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-          <span className="text-lg">→</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+            {/* Column 3 */}
+            <div className="space-y-2 text-sm">
+              <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
+                Contact us
+              </p>
+              <p className="text-sky-100">
+                Talk to us about pilots, integration approaches, or
+                co-innovation opportunities.
+              </p>
+              <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+                <span className="text-lg">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
+

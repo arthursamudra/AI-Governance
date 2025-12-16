@@ -495,6 +495,48 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-6xl px-6 lg:px-0 py-16 border-t border-slate-200">
+  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-700 mb-2">
+    For IBM watsonx
+  </p>
+  <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-3">
+    Works side-by-side with IBM watsonx
+  </h2>
+
+  <p className="text-sm md:text-base text-slate-700 max-w-3xl mb-3 leading-relaxed">
+    Infinite sits between your channels and AI platforms like IBM watsonx. 
+    Orchestrate continues to run agents and models; Infinite wraps those agents 
+    with identity, tool governance, prompt policies, and training oversight.
+  </p>
+
+  <p className="text-sm md:text-base text-slate-700 max-w-3xl mb-5 leading-relaxed">
+    You keep your existing watsonx flows and tools. Infinite becomes the external 
+    control plane that observes, constrains, and explains what those agents do.
+  </p>
+
+  <ul className="list-disc pl-5 space-y-2 text-sm md:text-base text-slate-700 max-w-3xl">
+    <li>
+      Uses watsonx Orchestrate tools, webhooks, and APIs – no changes to watsonx internals.
+    </li>
+    <li>
+      Adds AI-IAM, EPPE, GiT, and UTE around watsonx agents for identity, prompts, 
+      training governance, and tool execution.
+    </li>
+    <li>
+      Designed for regulated IBM clients and GSI delivery models where governance 
+      needs to span multiple AI platforms.
+    </li>
+  </ul>
+
+  <a
+    href="/watsonx-integration"
+    className="mt-6 inline-block text-sm font-semibold text-sky-700 hover:underline"
+  >
+    See the watsonx integration blueprint →
+  </a>
+</section>
+
+
       {/* Why choose Infinite – flat four-column like SAS */}
       <section className="mx-auto max-w-6xl px-6 lg:px-0 py-20 border-t border-slate-200">
         <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-700 mb-2">

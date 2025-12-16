@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ForWatsonxCallout } from "../../components/ForWatsonxCallout";
 
 export default function UtePage() {
   return (
@@ -12,7 +13,7 @@ export default function UtePage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/ute-hero.png"   // <--- NOW THIS WILL SHOW
+            src="/images/ute-hero.png"
             alt="Universal Tool Executor"
             fill
             priority
@@ -75,6 +76,17 @@ export default function UtePage() {
             Ideal for hybrid and multi-cloud environments.
           </p>
         </div>
+
+        {/* 🔵 For watsonx callout */}
+        <ForWatsonxCallout
+          description="UTE becomes the single governed tool gateway that watsonx Orchestrate agents use to reach enterprise systems, so every tool call – regardless of vendor or protocol – is subject to the same policies, identity checks and observability."
+          bullets={[
+            "Exposes UTE as one or more tools inside Orchestrate, so agents call UTE rather than dozens of direct HTTP / API tools.",
+            "Uses AI-IAM capability tokens from watsonx agent runs to decide which tools, methods and data scopes are allowed for each invocation.",
+            "Enforces SASF and EPPE policies before executing a tool call, including rate limits, masking and environment-aware routing.",
+            "Provides a unified trace of all watsonx-triggered tool invocations across clouds and runtimes, feeding back into governance and GiT."
+          ]}
+        />
       </section>
 
       {/* ========================================================= */}
@@ -107,8 +119,8 @@ export default function UtePage() {
 
             <ol className="list-decimal space-y-2 pl-5">
               <li>Agent calls UTE with a signed capability token from AI-IAM.</li>
-              <li>UTE resolves the tool & checks SASF/EPPE policies.</li>
-              <li>UTE executes with retries, timeouts & structured logging.</li>
+              <li>UTE resolves the tool &amp; checks SASF/EPPE policies.</li>
+              <li>UTE executes with retries, timeouts &amp; structured logging.</li>
               <li>Results return to the agent with full traceability.</li>
             </ol>
           </div>
@@ -133,77 +145,78 @@ export default function UtePage() {
           execution surface for every action your AI agents perform.
         </p>
       </section>
+
       {/* Bottom CTA strip – full-width blue band */}
       <section
-  id="contact-strip"
-  className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 mt-20 bg-sky-900 text-white"
->
-  <div className="mx-auto max-w-6xl px-6 lg:px-0 py-12">
-    <div className="grid gap-10 md:grid-cols-[1.4fr,repeat(3,minmax(0,1fr))] items-start">
-      {/* Left: main CTA */}
-      <div>
-        <p className="text-xs uppercase tracking-[0.24em] text-sky-300 mb-2">
-          Get started
-        </p>
-        <h2 className="text-2xl md:text-3xl font-semibold mb-3">
-          Explore Infinite’s AI governance capabilities
-        </h2>
-        <p className="text-sm md:text-base text-sky-100 max-w-md mb-6">
-          Experience the suite in a guided pilot, see it in your banking
-          flows, or just talk through options with us.
-        </p>
-        <a
-          href="#"
-          className="inline-flex items-center rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-2.5 text-sm font-semibold text-white hover:brightness-110 transition"
-        >
-          Try Infinite sandbox
-        </a>
-      </div>
+        id="contact-strip"
+        className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 mt-20 bg-sky-900 text-white"
+      >
+        <div className="mx-auto max-w-6xl px-6 lg:px-0 py-12">
+          <div className="grid gap-10 md:grid-cols-[1.4fr,repeat(3,minmax(0,1fr))] items-start">
+            {/* Left: main CTA */}
+            <div>
+              <p className="text-xs uppercase tracking-[0.24em] text-sky-300 mb-2">
+                Get started
+              </p>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-3">
+                Explore Infinite’s AI governance capabilities
+              </h2>
+              <p className="text-sm md:text-base text-sky-100 max-w-md mb-6">
+                Experience the suite in a guided pilot, see it in your banking
+                flows, or just talk through options with us.
+              </p>
+              <a
+                href="#"
+                className="inline-flex items-center rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-2.5 text-sm font-semibold text-white hover:brightness-110 transition"
+              >
+                Try Infinite sandbox
+              </a>
+            </div>
 
-      {/* Column 1 */}
-      <div className="space-y-2 text-sm">
-        <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
-          Request pricing
-        </p>
-        <p className="text-sky-100">
-          Understand licensing, deployment options, and how Infinite can
-          fit your landscape.
-        </p>
-        <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-          <span className="text-lg">→</span>
-        </button>
-      </div>
+            {/* Column 1 */}
+            <div className="space-y-2 text-sm">
+              <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
+                Request pricing
+              </p>
+              <p className="text-sky-100">
+                Understand licensing, deployment options, and how Infinite can
+                fit your landscape.
+              </p>
+              <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+                <span className="text-lg">→</span>
+              </button>
+            </div>
 
-      {/* Column 2 */}
-      <div className="space-y-2 text-sm">
-        <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
-          Request a demo
-        </p>
-        <p className="text-sky-100">
-          See how SASF, AI-IAM, EPPE, GiT and UTE work together in a real
-          banking flow.
-        </p>
-        <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-          <span className="text-lg">→</span>
-        </button>
-      </div>
+            {/* Column 2 */}
+            <div className="space-y-2 text-sm">
+              <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
+                Request a demo
+              </p>
+              <p className="text-sky-100">
+                See how SASF, AI-IAM, EPPE, GiT and UTE work together in a real
+                banking flow.
+              </p>
+              <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+                <span className="text-lg">→</span>
+              </button>
+            </div>
 
-      {/* Column 3 */}
-      <div className="space-y-2 text-sm">
-        <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
-          Contact us
-        </p>
-        <p className="text-sky-100">
-          Talk to us about pilots, integration approaches, or
-          co-innovation opportunities.
-        </p>
-        <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-          <span className="text-lg">→</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+            {/* Column 3 */}
+            <div className="space-y-2 text-sm">
+              <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
+                Contact us
+              </p>
+              <p className="text-sky-100">
+                Talk to us about pilots, integration approaches, or
+                co-innovation opportunities.
+              </p>
+              <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+                <span className="text-lg">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

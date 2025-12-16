@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ForWatsonxCallout } from "../../components/ForWatsonxCallout";
 
 export default function AIIamPage() {
   return (
@@ -10,7 +11,7 @@ export default function AIIamPage() {
         {/* Background image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/ai-iam-hero.png" // add an appropriate hero image here
+            src="/images/ai-iam-hero.png"
             alt="AI-IAM identity and authorization"
             fill
             priority
@@ -18,7 +19,7 @@ export default function AIIamPage() {
           />
         </div>
 
-        {/* White → transparent overlay so text is readable on the left */}
+        {/* White gradient overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,1)_0%,rgba(255,255,255,1)_45%,rgba(255,255,255,0.35)_62%,rgba(15,23,42,0)_100%)]" />
 
         {/* Content */}
@@ -47,6 +48,7 @@ export default function AIIamPage() {
         <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-sky-700 mb-2">
           Role in the suite
         </p>
+
         <h2 className="text-xl md:text-2xl font-semibold text-slate-900 mb-3">
           What AI-IAM is responsible for
         </h2>
@@ -58,19 +60,32 @@ export default function AIIamPage() {
           session tokens and per-action capability tokens instead of long-lived
           API keys or static service accounts.
         </p>
+
         <p className="text-sm md:text-base text-slate-700 leading-relaxed max-w-3xl">
           Every call into SASF or UTE passes through a Policy Enforcement Point
           backed by AI-IAM. Policies decide who can call which tools, with what
           data, and under which risk conditions – and every decision is logged
           for audit and explainability.
         </p>
+
+        {/* 🔵 WATSONX CALLOUT INSERTED HERE */}
+        <ForWatsonxCallout
+          description="AI-IAM becomes the identity & authorization layer that governs which Orchestrate agents, tools, and data scopes a user or system is allowed to access. Every watsonx agent run is issued a short-lived capability token, and every downstream tool or RAG connector verifies that token at runtime."
+          bullets={[
+            "Issues capability tokens for each Orchestrate agent invocation, encoding allowed tools, data access levels, and output constraints.",
+            "Enforces policy-based access control on every downstream tool call triggered by a watsonx agent.",
+            "Integrates with SASF and UTE to ensure only authorized actions are executed inside the governed runtime.",
+            "Provides an audit trail of identity → agent → tool chain of custody, essential for regulated industries."
+          ]}
+        />
       </section>
 
-      {/* KEY CAPABILITIES – THREE COLUMNS, NO CARDS */}
+      {/* KEY CAPABILITIES – THREE COLUMNS */}
       <section className="mx-auto max-w-6xl px-6 lg:px-0 border-b border-slate-100 pb-12">
         <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-sky-700 mb-2">
           Key capabilities
         </p>
+
         <h2 className="text-xl md:text-2xl font-semibold text-slate-900 mb-6">
           How AI-IAM keeps agents under control
         </h2>
@@ -91,12 +106,11 @@ export default function AIIamPage() {
                 <strong>Capability-based access.</strong> Agents receive
                 fine-grained capabilities such as{" "}
                 <code>can-read-transactions</code> or{" "}
-                <code>can-invoke-llm</code> instead of vague role labels.
+                <code>can-invoke-llm</code>.
               </li>
               <li>
                 <strong>Continuous authorization.</strong> Capabilities can be
-                revoked mid-session when risk scores increase or behaviour
-                drifts.
+                revoked mid-session when risk scores increase.
               </li>
             </ul>
           </div>
@@ -108,19 +122,16 @@ export default function AIIamPage() {
             </p>
             <ul className="space-y-2 list-disc pl-4">
               <li>
-                <strong>Agent &amp; tool registry.</strong> Register agents,
-                tools, and policies in a single schema with lifecycle states,
-                ownership, and attestation.
+                <strong>Agent & tool registry.</strong> Register agents, tools,
+                and policies with lifecycle states and attestation.
               </li>
               <li>
-                <strong>Strivacity-style console.</strong> Governance teams
-                configure everything via a visual console that maps directly to
-                secure APIs; no YAML required.
+                <strong>Strivacity-style console.</strong> Governance teams use
+                a clean UI mapped directly to secure APIs.
               </li>
               <li>
-                <strong>Dual-control approvals.</strong> High-risk changes
-                (WRITE access, PII fields) require a second approver before
-                publishing.
+                <strong>Dual-control approvals.</strong> Required for high-risk
+                policy changes.
               </li>
             </ul>
           </div>
@@ -132,19 +143,16 @@ export default function AIIamPage() {
             </p>
             <ul className="space-y-2 list-disc pl-4">
               <li>
-                <strong>Ledger-backed events.</strong> Every registration,
-                token issuance, and PEP decision is written to an immutable
-                ledger with cryptographic proof.
+                <strong>Ledger-backed events.</strong> Every decision is
+                cryptographically verifiable.
               </li>
               <li>
-                <strong>Decision chains.</strong> For any tool call, you can
-                reconstruct which agent acted, which policy applied, what data
-                was masked, and why the decision was allowed or denied.
+                <strong>Decision chains.</strong> Reconstruct who acted, what
+                policy applied, what data was masked.
               </li>
               <li>
-                <strong>Regulator alignment.</strong> Designed to support
-                ISO/IEC 42001, NIST AI RMF, RBI guidelines, and sectoral
-                regulations from the outset.
+                <strong>Regulator alignment.</strong> Built with ISO/IEC 42001
+                & NIST AI RMF in mind.
               </li>
             </ul>
           </div>
@@ -156,89 +164,86 @@ export default function AIIamPage() {
         <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-sky-700 mb-2">
           Deployment model
         </p>
+
         <h2 className="text-xl md:text-2xl font-semibold text-slate-900 mb-3">
           SaaS agility with hybrid enforcement
         </h2>
+
         <p className="text-sm md:text-base text-slate-700 leading-relaxed max-w-3xl">
           AI-IAM is built as a hybrid-ready platform. A SaaS control plane
-          offers central dashboards, analytics, and policy authoring, while
-          lightweight enforcement nodes run inside the bank&apos;s VPC for local
-          policy evaluation and log storage. This gives you SaaS agility without
-          sacrificing data sovereignty.
+          manages dashboards, analytics, and policy authoring, while enforcement
+          nodes run inside the bank’s VPC for sovereign policy evaluation and
+          log storage.
         </p>
       </section>
 
-      {/* Bottom CTA strip – full-width blue band */}
+      {/* CTA STRIP */}
       <section
-  id="contact-strip"
-  className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 mt-20 bg-sky-900 text-white"
->
-  <div className="mx-auto max-w-6xl px-6 lg:px-0 py-12">
-    <div className="grid gap-10 md:grid-cols-[1.4fr,repeat(3,minmax(0,1fr))] items-start">
-      {/* Left: main CTA */}
-      <div>
-        <p className="text-xs uppercase tracking-[0.24em] text-sky-300 mb-2">
-          Get started
-        </p>
-        <h2 className="text-2xl md:text-3xl font-semibold mb-3">
-          Explore Infinite’s AI governance capabilities
-        </h2>
-        <p className="text-sm md:text-base text-sky-100 max-w-md mb-6">
-          Experience the suite in a guided pilot, see it in your banking
-          flows, or just talk through options with us.
-        </p>
-        <a
-          href="#"
-          className="inline-flex items-center rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-2.5 text-sm font-semibold text-white hover:brightness-110 transition"
-        >
-          Try Infinite sandbox
-        </a>
-      </div>
+        id="contact-strip"
+        className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 mt-20 bg-sky-900 text-white"
+      >
+        <div className="mx-auto max-w-6xl px-6 lg:px-0 py-12">
+          <div className="grid gap-10 md:grid-cols-[1.4fr,repeat(3,minmax(0,1fr))] items-start">
+            {/* Left */}
+            <div>
+              <p className="text-xs uppercase tracking-[0.24em] text-sky-300 mb-2">
+                Get started
+              </p>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-3">
+                Explore Infinite’s AI governance capabilities
+              </h2>
+              <p className="text-sm md:text-base text-sky-100 max-w-md mb-6">
+                Experience the suite in a guided pilot.
+              </p>
+              <a
+                href="#"
+                className="inline-flex items-center rounded-full bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-2.5 text-sm font-semibold text-white hover:brightness-110 transition"
+              >
+                Try Infinite sandbox
+              </a>
+            </div>
 
-      {/* Column 1 */}
-      <div className="space-y-2 text-sm">
-        <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
-          Request pricing
-        </p>
-        <p className="text-sky-100">
-          Understand licensing, deployment options, and how Infinite can
-          fit your landscape.
-        </p>
-        <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-          <span className="text-lg">→</span>
-        </button>
-      </div>
+            {/* Pricing */}
+            <div className="space-y-2 text-sm">
+              <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
+                Request pricing
+              </p>
+              <p className="text-sky-100">
+                Understand licensing & deployment options.
+              </p>
+              <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+                <span className="text-lg">→</span>
+              </button>
+            </div>
 
-      {/* Column 2 */}
-      <div className="space-y-2 text-sm">
-        <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
-          Request a demo
-        </p>
-        <p className="text-sky-100">
-          See how SASF, AI-IAM, EPPE, GiT and UTE work together in a real
-          banking flow.
-        </p>
-        <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-          <span className="text-lg">→</span>
-        </button>
-      </div>
+            {/* Demo */}
+            <div className="space-y-2 text-sm">
+              <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
+                Request a demo
+              </p>
+              <p className="text-sky-100">
+                See the full Infinite governance suite in action.
+              </p>
+              <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+                <span className="text-lg">→</span>
+              </button>
+            </div>
 
-      {/* Column 3 */}
-      <div className="space-y-2 text-sm">
-        <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
-          Contact us
-        </p>
-        <p className="text-sky-100">
-          Talk to us about pilots, integration approaches, or
-          co-innovation opportunities.
-        </p>
-        <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
-          <span className="text-lg">→</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+            {/* Contact */}
+            <div className="space-y-2 text-sm">
+              <p className="text-xs uppercase tracking-[0.2em] text-sky-300">
+                Contact us
+              </p>
+              <p className="text-sky-100">
+                Talk to us about pilots or co-innovation.
+              </p>
+              <button className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition">
+                <span className="text-lg">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
